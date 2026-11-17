@@ -1,10 +1,10 @@
 class Solution {
     public int evalRPN(String[] tokens) {
-        List<Integer> stack = new ArrayList<>();
+        Stack<Integer> stack = new Stack<>();
         for (String t : tokens) {
             if (t.equals("+") || t.equals("-") || t.equals("*") || t.equals("/")) {
-                int b = stack.remove(stack.size() - 1);
-                int a = stack.remove(stack.size() - 1);
+                int b = stack.pop();
+                int a = stack.pop();
                 switch (t) {
                     case "+": stack.add(a + b); break;
                     case "-": stack.add(a - b); break;
